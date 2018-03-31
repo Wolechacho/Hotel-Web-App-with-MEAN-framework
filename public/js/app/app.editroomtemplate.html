@@ -1,0 +1,67 @@
+<div 
+        [formGroup]="editRoomForm" 
+        class="panel panel-primary"  
+        (ngSubmit)="edit()" 
+        enctype="multipart/form-data" method="POST">
+    <div class="panel-heading">UPDATE ROOM</div>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <label for="name" id="name">Name :</label>
+                <input formControlName="name" type="text" placeholder="NAME" class="form-control">
+                <div *ngIf="editRoomForm.controls.name.errors
+                     && editRoomForm.controls.name.touched">
+                    <div *ngIf="editRoomForm.controls.name.errors.required">
+                       Name is required
+                    </div>
+                    <div *ngIf="editRoomForm.controls.name.errors.minlength">
+                        Characters should be minimum of
+                        {{ editRoomForm.controls.name.errors.minlength.requiredLength}}
+                    </div>
+                </div>
+            </div>
+             <div class="form-group">
+                <label for="description" id="description">Description :</label>
+                <input
+                    formControlName="description"
+                     type="text" 
+                     placeholder="DESCRIPTION"
+                     class="form-control">
+                <div *ngIf="editRoomForm.controls.description.errors && 
+                    editRoomForm.controls.description.touched">
+                    <div *ngIf="editRoomForm.controls.description.errors.required">
+                       Description is required
+                    </div>
+                    <div *ngIf="editRoomForm.controls.description.errors.minlength">
+                        Characters should be minimum of 
+                        {{editRoomForm.controls.description.errors.minlength.requiredLength}}
+                    </div>
+                </div>
+            </div>
+             <div class="form-group">
+                <label for="price" id="price">Price :</label>
+                <input 
+                    formControlName="price" 
+                    type="number" 
+                    class="form-control">
+                <div *ngIf="editRoomForm.controls.price.errors && 
+                    editRoomForm.controls.price.touched">
+                   <div *ngIf="editRoomForm.controls.price.errors.required">
+                        Supply a price
+                    </div>
+                     <div *ngIf="editRoomForm.controls.price.errors.priceRange">
+                        Supply price hundred plus
+                    </div>
+                </div>
+            </div>
+           
+            <div class="text-center">
+                <input 
+                    type="submit" 
+                    class="btn btn-success" 
+                    value="UPDATE" 
+                    [class.disabled]="!editRoomForm.valid">
+            </div>
+        </form>
+    </div>
+</div>

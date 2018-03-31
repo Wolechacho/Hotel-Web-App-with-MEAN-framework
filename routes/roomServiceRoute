@@ -1,0 +1,47 @@
+var express = require('express');
+var mongoose = require('mongoose');
+var router = express.Router();
+
+var roomServiceDetailModel = require('../models/roomserviceDetail');
+
+router.post('/save',function(req,res,next){
+    var roomservice = new roomServiceDetailModel({
+                customer : req.body.customer_id,
+                loginDate: req.body.date,
+                room : req.body.room_id
+            })
+
+            roomservice.save(function(error,result){
+                if(error)
+                return res.status(501).json({
+                    error : "Could not save"
+                })
+               return res.status(200).json({
+                    success : "Saved"
+                })
+            })
+});
+
+router.get('/getDetails',function(req,res,next){
+    let populateQuery = [
+        {path:'room',select:'name description'},
+        {path:'customer',select:'firstName lastName'}]
+    roomServiceDetailModel
+    .find({})
+    .populate(populateQuery)
+    .exec(function(error,result){
+        if(error)
+        {
+            return res.status(404).json({
+                error : 'Bad Request'
+            })
+        }
+
+          return res.status(200).json({
+               result : result
+            })
+    })
+
+})
+
+module.exports = router;

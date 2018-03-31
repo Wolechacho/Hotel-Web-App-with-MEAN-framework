@@ -1,0 +1,9 @@
+"use strict";
+var Room = (function () {
+    function Room() {
+    }
+    return Room;
+}());
+exports.Room = Room;
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInJvb20ubW9kZWwudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBO0lBQUE7SUFPQSxDQUFDO0lBQUQsV0FBQztBQUFELENBUEEsQUFPQyxJQUFBO0FBUFksWUFBSSxPQU9oQixDQUFBIiwiZmlsZSI6InJvb20ubW9kZWwuanMiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgY2xhc3MgUm9vbVxyXG57XHJcbiAgICBwdWJsaWMgaWQgOm51bWJlcjtcclxuICAgIHB1YmxpYyBuYW1lIDpzdHJpbmc7XHJcbiAgICBwdWJsaWMgcHJpY2UgOiBudW1iZXI7XHJcbiAgICBwdWJsaWMgaW1hZ2VVcmwgOiBzdHJpbmc7XHJcbiAgICBwdWJsaWMgZGVzY3JpcHRpb24gOiBzdHJpbmc7XHJcbn0iXSwic291cmNlUm9vdCI6Ii9zb3VyY2UvIn0=

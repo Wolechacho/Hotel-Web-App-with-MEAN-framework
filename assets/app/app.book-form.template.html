@@ -1,0 +1,107 @@
+<div class="panel panel-success">
+    <div class="panel-heading">CUSTOMER DETAILS</div>
+    <div class="panel-body">
+        <form [formGroup]="bookForm" (ngSubmit)="save()">
+            <div class="form-group">
+                <label for="firstName">FirstName :</label>
+                <input 
+                id="firstName" 
+                type="text" 
+                class="form-control" 
+                formControlName="firstName"
+                placeholder="FirstName">
+
+                <div *ngIf="bookForm.controls.firstName.errors && bookForm.controls.firstName.touched">
+                    <div 
+                    *ngIf="bookForm.controls.firstName.errors.required" 
+                    class="error">
+                        FirstName field is required
+                    </div>
+                    <div *ngIf="bookForm.controls.firstName.errors.minlength" class="error">
+                        Characters should be minimum of 
+                        {{bookForm.controls.firstName.errors.minlength.requiredLength}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastName">LastName :</label>
+                <input
+                 id="lastName" 
+                 type="text" 
+                 placeholder="lastName" 
+                 class="form-control" 
+                 formControlName="lastName">
+                <div *ngIf="bookForm.controls.lastName.errors&& bookForm.controls.lastName.touched">
+                    <div *ngIf="bookForm.controls.lastName.errors.required" class="error">
+                        LastName field is required
+                    </div>
+                    <div *ngIf="bookForm.controls.lastName.errors.minlength" class="error">
+                        Characters should be minimum of
+                         {{bookForm.controls.lastName.errors.minlength.requiredLength}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input 
+                id="address" 
+                type="text" 
+                placeholder="address" 
+                class="form-control" 
+                formControlName="address">
+                <div *ngIf="bookForm.controls.address.errors&& bookForm.controls.address.touched">
+                    <div *ngIf="bookForm.controls.address.errors.required" class="error">
+                        Address field is required
+                    </div>
+                    <div *ngIf="bookForm.controls.address.errors.minlength" class="error">
+                        Characters should be minimum of
+                         {{bookForm.controls.address.errors.minlength.requiredLength}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="age">Age : </label>
+                <input 
+                id="age" 
+                type="number" 
+                class="form-control" 
+                formControlName="age">
+                <div *ngIf="bookForm.controls.age.errors&& bookForm.controls.age.touched">
+                    <div *ngIf="bookForm.controls.age.errors.required" class="error">
+                        Age field is required
+                    </div>
+                    <div *ngIf="bookForm.controls.age.errors.mustbeAboveEighteen" class="error">
+                        You must eighteen +
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender :</label>
+                <select id="gender" type="select" class="form-control" formControlName="gender">
+            <option>Choose</option>
+            <option>Male</option>
+            <option>Female</option>
+        </select>
+                <div 
+                *ngIf="bookForm.controls.gender.errors && bookForm.controls.gender.touched" 
+                class="error">
+                <div *ngIf="bookForm.controls.gender.errors.required" class="error">
+                        Gender is Required
+                    </div>
+                    <div *ngIf="bookForm.controls.gender.errors.chooseGender" class="error">
+                        Choose an appropriate Gender
+                    </div>
+                </div>
+
+            </div>
+            <div class="text-center">
+                <input 
+                type="submit"
+                 class="btn btn-success" 
+                 value="SUBMIT"
+                [class.disabled]="!bookForm.valid">
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,82 @@
+<div 
+        [formGroup]="newRoomForm" 
+        class="panel panel-primary"  
+        (ngSubmit)="create()" 
+        enctype="multipart/form-data" method="POST">
+    <div class="panel-heading">CREATE ROOM</div>
+    <div class="panel-body">
+        <form>
+
+               <div class="form-group">
+                <label for="imageUrl" id="imageUrl">Image url</label>
+                <input                   
+                     type="file" 
+                     id="upload" 
+                     name="upload" class="form-control">
+                    <input 
+                    formControlName="imageUrl" 
+                    type="hidden">
+
+                    <div *ngIf="newRoomForm.controls.imageUrl.errors">
+                        <div *ngIf="newRoomForm.controls.imageUrl.errors.required">
+                                Supply a price
+                        </div>
+                    </div>
+            </div>
+            <div class="form-group">
+                <label for="name" id="name">Name :</label>
+                <input formControlName="name" type="text" placeholder="NAME" class="form-control">
+                <div *ngIf="newRoomForm.controls.name.errors
+                     && newRoomForm.controls.name.touched">
+                    <div *ngIf="newRoomForm.controls.name.errors.required">
+                       Name is required
+                    </div>
+                    <div *ngIf="newRoomForm.controls.name.errors.minlength">
+                        Characters should be minimum of
+                        {{ newRoomForm.controls.name.errors.minlength.requiredLength}}
+                    </div>
+                </div>
+            </div>
+             <div class="form-group">
+                <label for="description" id="description">Description :</label>
+                <input
+                    formControlName="description"
+                     type="text" 
+                     placeholder="DESCRIPTION"
+                     class="form-control">
+                <div *ngIf="newRoomForm.controls.description.errors && 
+                    newRoomForm.controls.description.touched">
+                    <div *ngIf="newRoomForm.controls.description.errors.required">
+                       Description is required
+                    </div>
+                    <div *ngIf="newRoomForm.controls.description.errors.minlength">
+                        Characters should be minimum of 
+                        {{newRoomForm.controls.description.errors.minlength.requiredLength}}
+                    </div>
+                </div>
+            </div>
+             <div class="form-group">
+                <label for="price" id="price">Price :</label>
+                <input 
+                    formControlName="price" 
+                    type="number" 
+                    class="form-control">
+                <div *ngIf="newRoomForm.controls.price.errors && 
+                    newRoomForm.controls.price.touched">
+                   <div *ngIf="newRoomForm.controls.price.errors.required">
+                        Supply a price
+                    </div>
+                     <div *ngIf="newRoomForm.controls.price.errors.priceRange">
+                        Supply price hundred plus
+                    </div>
+                </div>
+            </div>
+          
+            <div class="text-center">
+                <input 
+                    type="submit" 
+                    class="btn btn-success" [class.disabled]="!newRoomForm.valid">
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+"use strict";
+var Customer = (function () {
+    function Customer() {
+    }
+    return Customer;
+}());
+exports.Customer = Customer;
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImN1c3RvbWVyLm1vZGVsLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQTtJQUFBO0lBT0EsQ0FBQztJQUFELGVBQUM7QUFBRCxDQVBBLEFBT0MsSUFBQTtBQVBZLGdCQUFRLFdBT3BCLENBQUEiLCJmaWxlIjoiY3VzdG9tZXIubW9kZWwuanMiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgY2xhc3MgQ3VzdG9tZXJcclxue1xyXG4gICAgcHVibGljIGZpcnN0TmFtZTpzdHJpbmdcclxuICAgIHB1YmxpYyBsYXN0TmFtZTpzdHJpbmdcclxuICAgIHB1YmxpYyBhZ2U6bnVtYmVyXHJcbiAgICBwdWJsaWMgYWRkcmVzczpzdHJpbmdcclxuICAgIHB1YmxpYyBnZW5kZXI6c3RyaW5nXHJcbn0iXSwic291cmNlUm9vdCI6Ii9zb3VyY2UvIn0=
